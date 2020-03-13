@@ -1,7 +1,7 @@
 
-<div *ngIf="stories$ | async; let stories" class="" style="display: grid;grid-template-columns: auto auto auto auto;">
-    <div *ngFor="let story of stories" style="max-width: 450px; margin: 30px;">
-        <mat-card class="example-card" style="background-color: #bed0e2;">
+<div *ngIf="stories" class="" style="display: grid; grid-template-columns: auto auto auto">
+    <div *ngFor="let story of stories" style="margin: 30px;">
+        <mat-card style="background-color: #bed0e2;">
             <mat-card-header>
               <mat-card-title>{{story.heading}}</mat-card-title>
               <mat-card-subtitle>By: {{story.author}}</mat-card-subtitle>
@@ -16,5 +16,5 @@
 </div>
 
 <div style="width: 100%; display: inline-block;text-align: center;">
-    <button mat-button>See More</button>
+    <button mat-button (click)="seeMore()">See More</button>
 </div>
