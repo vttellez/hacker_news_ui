@@ -7,6 +7,21 @@ import { environment } from './environments/environment';
 if (environment.production) {
   enableProdMode();
 }
+const providers = [
+  {
+    provide: 'BASE_URL',
+    useFactory: getBaseUrl, deps: []
+  },
+  {
+    provide: 'BASE_API_URL',
+    useValue:  environment.apiEndpoint,
+    deps: []
+  }
+];
 
-platformBrowserDynamic().bootstrapModule(AppModule)
+export function getBaseUrl() {
+  return document.getElementsByTagName('base')[0].href;
+}
+
+platformBrowserDynamic(providers).bootstrapModule(AppModule)
   .catch(err => console.error(err));
