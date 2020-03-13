@@ -4,6 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'new-stories',
+    pathMatch: 'full'
+  },
+  {
     path: 'new-stories',
     loadChildren: () => import('./new-stories/new-stories.module').then( m => m.NewStoriesModule)
   }

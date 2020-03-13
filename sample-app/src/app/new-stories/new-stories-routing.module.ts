@@ -6,8 +6,12 @@ import { NewStoriesListComponent } from './new-stories-list/new-stories-list.com
 const routes: Routes = [
   {
     path: '',
-    component: NewStoriesListComponent,
+    redirectTo: 'stories',
     pathMatch: 'full'
+  },
+  {
+    path: 'stories',
+    component: NewStoriesListComponent,
   }
 ];
 

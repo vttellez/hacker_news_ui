@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiEndpoint: 'https://localhost:44324/',
+  apiEndpoint: 'https://hackernewsapi.azurewebsites.net/',
 };
 
 /*
