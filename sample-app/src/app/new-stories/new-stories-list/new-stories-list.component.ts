@@ -16,8 +16,9 @@ export class NewStoriesListComponent implements OnInit {
   title: 'Newes Stories';
   loading: boolean;
   constructor(protected newStoryService: NewStoryService) { }
-
+  searchText: string;
   ngOnInit(): void {
+    this.searchText = null;
     this.loading = true;
     this.newStoryService.loadStories().subscribe(x => {
       if (x) {

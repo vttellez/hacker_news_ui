@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NewStoriesHttpService } from './new-stories-http.service';
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs';
 import { NewStory } from '../models/new-story.model';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { NewStory } from '../models/new-story.model';
 })
 export class NewStoryService {
     private page: number;
-    
+
     constructor(private newStoryHttpService: NewStoriesHttpService) {
         this.page = 0;
     }

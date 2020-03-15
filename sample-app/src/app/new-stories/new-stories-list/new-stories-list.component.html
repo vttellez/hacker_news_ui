@@ -1,25 +1,38 @@
-<div  [hidden]="!loading" class="center">
- 
+<div [hidden]="!loading" class="center">
+
   <mat-progress-spinner [mode]="'indeterminate'">
   </mat-progress-spinner>
 </div>
+<mat-toolbar color="primary">
 
-<div *ngIf="stories" class="" style="display: grid; grid-template-columns: auto auto auto">
-    <div *ngFor="let story of stories" style="margin: 30px;">
-        <mat-card style="background-color: #bed0e2;">
-            <mat-card-header>
-              <mat-card-title>{{story.heading}}</mat-card-title>
-              <mat-card-subtitle>By: {{story.author}}</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-actions style="text-align: right;">
-              <button mat-button>LIKE</button>
-              <a *ngIf="story.url" [attr.href]="story.url"><button mat-button >VIEW</button></a>
- 
-            </mat-card-actions>
-          </mat-card>
-    </div>
+  <mat-toolbar-row>
+    <span class="example-spacer"></span>
+    <span class="search-title">Search by author:</span>
+    <mat-form-field class="example-form-field">
+      <input matInput type="text" [(ngModel)]="searchText">
+      <button mat-button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="searchText=null">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div *ngIf="stories" class="stories-container">
+  <div *ngFor="let story of stories | filter : searchText" class="card-container">
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>{{story.heading}}</mat-card-title>
+        <mat-card-subtitle>By: {{story.author}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions class="card-actions">
+        <button mat-button>LIKE</button>
+        <a *ngIf="story.url" [attr.href]="story.url"><button mat-button>VIEW</button></a>
+
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </div>
 
-<div style="width: 100%; display: inline-block;text-align: center;">
-    <button mat-button (click)="seeMore()" *ngIf="!loading">See More</button>
+<div class="see-more-container">
+  <button mat-button (click)="seeMore()" *ngIf="!loading">See More</button>
 </div>

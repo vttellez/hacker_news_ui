@@ -9,4 +9,30 @@
 
   .center {
     margin: auto;
-    width: 5%;  }
+    width: 5%;  
+  }
+
+  .search-title {
+    margin-right: 20px;
+  }
+
+  .stories-container {
+    display: grid; 
+    grid-template-columns: auto auto auto
+  }
+
+  .card-container{
+    margin: 30px;
+  }
+  .card{
+    background-color: #bed0e2;
+  }
+  .card-actions{
+    text-align: right;
+  }
+
+  .see-more-container{
+    width: 100%; 
+    display: inline-block;
+    text-align: center;
+  }
