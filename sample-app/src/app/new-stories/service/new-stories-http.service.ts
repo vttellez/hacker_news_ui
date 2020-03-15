@@ -12,7 +12,7 @@ export class NewStoriesHttpService {
 
     }
 
-    getNewStories(page: number = 0): Observable<NewStory[]> {
-       return this.httpHelper.get<NewStory[]>(this.endPoint);
+    getNewStories(page: number): Observable<NewStory[]> {
+       return this.httpHelper.get<NewStory[]>(`${this.endPoint}/${page}`);
     }
 }

@@ -26,42 +26,15 @@ export class NewStoriesListComponent implements OnInit {
       }
     }
     );
-
-    // .subscribe(x => {
-    //   if (x) {
-    //     console.log(x, 'result');
-    //   }
-    // });
   }
 
   seeMore() {
-    // zip(of([
-    //   {
-    //     url: '',
-    //     heading: '',
-    //     author: ''
-    //   }
-    // ]), this.stories$)
-    //   .pipe(map(x => x[0].concat(x[1])))
-    //   .subscribe(data => console.log('merge', data))\
-
-    const g: Observable<NewStory[]> = of([
-      {
-        id: '',
-        url: '',
-        heading: 'Vlad',
-        author: 'Vladimir'
+    this.loading = true;
+    this.newStoryService.loadStories().subscribe(x => {
+      if (x) {
+        this.stories = [...this.stories, ...x];
+        this.loading = false;
       }
-    ]);
-
-    this.stories = [...this.stories, ...[
-      {
-        id: '',
-        url: '',
-        heading: 'Vlad',
-        author: 'Vladimir'
-      }
-    ]];
+    });
   }
-
 }
