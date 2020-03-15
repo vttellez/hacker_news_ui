@@ -24,7 +24,7 @@
         <mat-card-title>{{story.heading}}</mat-card-title>
         <mat-card-subtitle>By: {{story.author}}</mat-card-subtitle>
       </mat-card-header>
-      <mat-card-actions class="card-actions">
+      <mat-card-actions class="card-item-actions">
         <button mat-button>LIKE</button>
         <a *ngIf="story.url" [attr.href]="story.url"><button mat-button>VIEW</button></a>
 
