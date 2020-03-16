@@ -4,6 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'home',
+    redirectTo: 'new-stories',
+    pathMatch: 'full'
+  },
+  {
     path: '',
     redirectTo: 'new-stories',
     pathMatch: 'full'
